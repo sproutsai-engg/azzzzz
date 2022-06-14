@@ -15,21 +15,21 @@ Amplify.configure(awsconfig)
 //     fetchUsers()
 //   }, [])
 
-const FetchUsers = async () => {
-  const [users, setUsers] = useState('')
-  useEffect(() => {
-    FetchUsers()
-  }, [])
-  try {
-    const userData = await API.graphql(graphqlOperation(listUsers))
-    const userList = userData.data.listUsers.items
-    console.log('user list', userList)
-    setUsers(userList)
-    //
-  } catch (error) {
-    console.log('error on fetching users', error)
-  }
-}
+// const FetchUsers = async () => {
+//   const [users, setUsers] = useState('')
+//   useEffect(() => {
+//     FetchUsers()
+//   }, [])
+//   try {
+//     const userData = await API.graphql(graphqlOperation(listUsers))
+//     const userList = userData.data.listUsers.items
+//     console.log('user list', userList)
+//     setUsers(userList)
+//     //
+//   } catch (error) {
+//     console.log('error on fetching users', error)
+//   }
+// }
 
 function App() {
   // const [users, setUsers] = useState("")
