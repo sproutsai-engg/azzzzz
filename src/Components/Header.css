@@ -1,0 +1,22 @@
+li {
+    padding: 20px;
+    margin: 0;
+    list-style-type: none;
+}
+
+.ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav--profile {
+    margin-left: auto;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}

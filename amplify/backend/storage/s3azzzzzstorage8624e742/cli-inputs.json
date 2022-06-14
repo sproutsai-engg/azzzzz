@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3azzzzzstorage8624e742",
+  "bucketName": "azzzzz-storage-8624e742",
+  "policyUUID": "05546551",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
