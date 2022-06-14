@@ -38,7 +38,7 @@ Amplify.configure(awsconfig)
 function App({ signOut, user }) {
   return (
     <>
-      <h1>Hello {user.username}</h1>
+      <h1>Hello</h1>
       <button onClick={signOut}>Sign out</button>
     </>
   );
