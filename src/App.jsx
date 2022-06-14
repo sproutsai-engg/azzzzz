@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css'
 import React, { useState, useEffect } from 'react'
-import { Amplify, API, graphqlOperation } from 'aws-amplify'
+import { Amplify, Auth, API, graphqlOperation } from 'aws-amplify'
 import awsconfig from './aws-exports'
 import { Authenticator } from '@aws-amplify/ui-react'
 import Header from './Components/Header'
