@@ -12,11 +12,8 @@ export const getUser = /* GraphQL */ `
       dateOfBirth
       email
       mobile
-      skills
       gender
-      profilepic
       experience
-      resume
       createdAt
       updatedAt
     }
@@ -46,11 +43,8 @@ export const listUsers = /* GraphQL */ `
         dateOfBirth
         email
         mobile
-        skills
         gender
-        profilepic
         experience
-        resume
         createdAt
         updatedAt
       }

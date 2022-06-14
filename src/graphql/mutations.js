@@ -15,11 +15,8 @@ export const createUser = /* GraphQL */ `
       dateOfBirth
       email
       mobile
-      skills
       gender
-      profilepic
       experience
-      resume
       createdAt
       updatedAt
     }
@@ -39,11 +36,8 @@ export const updateUser = /* GraphQL */ `
       dateOfBirth
       email
       mobile
-      skills
       gender
-      profilepic
       experience
-      resume
       createdAt
       updatedAt
     }
@@ -63,11 +57,8 @@ export const deleteUser = /* GraphQL */ `
       dateOfBirth
       email
       mobile
-      skills
       gender
-      profilepic
       experience
-      resume
       createdAt
       updatedAt
     }

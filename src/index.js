@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Home from "./Pages/Home"
-import Profile from "./Pages/Profile"
+import Home from "./Home"
+import Profile from "./Profile"
 
 import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';

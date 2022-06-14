@@ -12,11 +12,8 @@ export const onCreateUser = /* GraphQL */ `
       dateOfBirth
       email
       mobile
-      skills
       gender
-      profilepic
       experience
-      resume
       createdAt
       updatedAt
     }
@@ -33,11 +30,8 @@ export const onUpdateUser = /* GraphQL */ `
       dateOfBirth
       email
       mobile
-      skills
       gender
-      profilepic
       experience
-      resume
       createdAt
       updatedAt
     }
@@ -54,11 +48,8 @@ export const onDeleteUser = /* GraphQL */ `
       dateOfBirth
       email
       mobile
-      skills
       gender
-      profilepic
       experience
-      resume
       createdAt
       updatedAt
     }

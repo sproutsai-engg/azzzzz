@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css'
-import Profile from './Pages/Profile'
+import Profile from './Profile'
 import React, { useState, useEffect } from 'react'
 import { Amplify, Auth, API, graphqlOperation } from 'aws-amplify'
 import awsconfig from './aws-exports'
