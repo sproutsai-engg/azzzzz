@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class Form extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       name: '',
       message: '',
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event) {
-    const inputValue = event.target.value;
-    const stateField = event.target.name;
+    const inputValue = event.target.value
+    const stateField = event.target.name
     this.setState({
       [stateField]: inputValue,
-    });
-    console.log(this.state);
+    })
+    console.log(this.state)
   }
   async handleSubmit(event) {
-    event.preventDefault();
-    const { name, message } = this.state;
-      await axios.post(
-        'https://i1xsjzkri4.execute-api.us-east-1.amazonaws.com/default/serverlessAppFunction',
-      { key1: `${name}, ${message}` }
-    );
+    event.preventDefault()
+    const { name, message } = this.state
+    await axios.post(
+      'https://nr4z67jjvi.execute-api.us-east-2.amazonaws.com/default/SampleUploadingDataIntoDynamoFunction',
+      { key1: `${name}, ${message}` },
+    )
   }
 
   render() {
@@ -52,6 +52,6 @@ export default class Form extends Component {
           <button type="submit">Send</button>
         </form>
       </div>
-    );
+    )
   }
 }
