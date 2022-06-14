@@ -3,7 +3,7 @@ import './App.css'
 import React, { useState, useEffect } from 'react'
 import { Amplify, Auth, API, graphqlOperation } from 'aws-amplify'
 import awsconfig from './aws-exports'
-import { Authenticator } from '@aws-amplify/ui-react'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 import Header from './Components/Header'
 import '@aws-amplify/ui-react/styles.css'
 import { listUsers } from './graphql/queries'
@@ -31,18 +31,47 @@ Amplify.configure(awsconfig)
 //   }
 // }
 
-function App() {
-  // const [users, setUsers] = useState("")
 
+
+function App({ signOut, user }) {
   return (
-    <Authenticator className="authenticator" signUpAttributes={['email']}>
-      {({ signOut, user }) => (
-        <>
-          <Header mail={user.attributes.email} singout={signOut} />
-        </>
-      )}
-    </Authenticator>
-  )
+    <>
+      <h1>Hello {user.username}</h1>
+      <button onClick={signOut}>Sign out</button>
+    </>
+  );
 }
 
-export default App
+export default withAuthenticator(App);
+
+
+
+// async function signUp() {
+//     try {
+//         const { user } = await Auth.signUp({
+//             email,
+//             password,
+            
+//         });
+//         console.log(user);
+//     } catch (error) {
+//         console.log('error signing up:', error);
+//     }
+// }
+
+
+// function App() {
+//   // const [users, setUsers] = useState("")
+
+//   return (
+//     <Authenticator className="authenticator" signUpAttributes={['email']}>
+//       {({ signOut, user }) => (
+//         <>
+//           <Header mail={user.attributes.email} singout={signOut} />
+//         </>
+//       )}
+//     </Authenticator>
+//   )
+// }
+
+// export default App
