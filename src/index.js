@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import Home from "./Pages/Home"
-//import Profile from "./Pages/Profile"
+import Profile from "./Pages/Profile"
 
 import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -21,8 +21,7 @@ root.render(
       <Routes>
         <Route path='/' element={<App />}>
           <Route path="Home" element={<Home />} />
-          <h1> HELLO </h1>
-          {/* <Route path="Profile" element={<Profile />} /> */}
+          <Route path="Profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
