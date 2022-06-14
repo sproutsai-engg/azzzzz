@@ -47,7 +47,7 @@ export default class Form extends Component {
     await axios.post(
       'https://nr4z67jjvi.execute-api.us-east-2.amazonaws.com/default/SampleUploadingDataIntoDynamoFunction',
       {
-        key1: `${firstName}, ${lastName}, ${Role}, ${highestLevelOfEducation}, ${dateOfBirth}, ${email},${mobile}, ${gender}, ${experience}`,
+        key1: `${ID}, ${firstName}, ${lastName}, ${Role}, ${highestLevelOfEducation}, ${dateOfBirth}, ${email},${mobile}, ${gender}, ${experience}`,
       },
     )
   }
