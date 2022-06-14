@@ -21,6 +21,7 @@ root.render(
       <Routes>
         <Route path='/' element={<App />}>
           <Route path="Home" element={<Home />} />
+          <h1> HELLO </h1>
           {/* <Route path="Profile" element={<Profile />} /> */}
         </Route>
       </Routes>

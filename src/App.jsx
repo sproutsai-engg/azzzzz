@@ -7,6 +7,24 @@ import { withAuthenticator } from '@aws-amplify/ui-react'
 import Header from './Components/Header'
 import '@aws-amplify/ui-react/styles.css'
 import { listUsers } from './graphql/queries'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+  
+
+// // import React from 'react'
+// import ReactDOM from 'react-dom/client'
+// import './index.css'
+// //import App from './App';
+// import reportWebVitals from './reportWebVitals'
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home"
+
+
+
 
 Amplify.configure(awsconfig)
 
@@ -31,36 +49,36 @@ Amplify.configure(awsconfig)
 //   }
 // }
 
-
-
-
-
 function App({ signOut, user }) {
   return (
     <>
       <h1>Hello</h1>
+      {/* <Router>
+        {/* <Switch> */}
+          {/* <Route exact path="/" component={Home} /> */}
+          {/* <Redirect to="/" />  */}
+        {/* </Switch> */}
+      {/* </Router>
+      <button onClick={}> UserDetailsPage </button> */} */}
       <button onClick={signOut}>Sign out</button>
     </>
-  );
+  )
 }
 
-export default withAuthenticator(App);
-
-
+export default withAuthenticator(App)
 
 // async function signUp() {
 //     try {
 //         const { user } = await Auth.signUp({
 //             email,
 //             password,
-            
+
 //         });
 //         console.log(user);
 //     } catch (error) {
 //         console.log('error signing up:', error);
 //     }
 // }
-
 
 // function App() {
 //   // const [users, setUsers] = useState("")
