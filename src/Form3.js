@@ -1,98 +1,30 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+// import React, { Component } from 'react'
+// import axios from 'axios'
 
-// // Create the DynamoDB service client module using ES6 syntax.
-// import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-// // Set the AWS Region.
-// export const REGION = "us-east-2"; // For example, "us-east-1".
-// // Create an Amazon DynamoDB service client object.
-// export const ddbClient = new DynamoDBClient({ region: REGION });
+import React, { useState, useEffect } from 'react'
+//import './App.css';
+import { API } from 'aws-amplify'
+//import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { listUsers } from './graphql/queries'
+import {
+  createUser as createUserMutation,
+  deleteUser as deleteUserMutation,
+} from './graphql/mutations'
 
-
-
-// ////////////////////////////////////////////////
-// ///////////////////////////////////////////////
-// ////////////////////////////////////////////////
-// //////////////////////////////////////
-
-// // Create a service client module using ES6 syntax.
-// import { DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
-// import { ddbClient } from "./ddbClient.js";
-// // Set the AWS Region.
-// const REGION = "us-east-2"; // For example, "us-east-1".
-
-// const marshallOptions = {
-//   // Whether to automatically convert empty strings, blobs, and sets to `null`.
-//   convertEmptyValues: false, // false, by default.
-//   // Whether to remove undefined values while marshalling.
-//   removeUndefinedValues: false, // false, by default.
-//   // Whether to convert typeof object to map attribute.
-//   convertClassInstanceToMap: false, // false, by default.
-// };
-
-// const unmarshallOptions = {
-//   // Whether to return numbers as a string instead of converting them to native JavaScript numbers.
-//   wrapNumbers: false, // false, by default.
-// };
-
-// const translateConfig = { marshallOptions, unmarshallOptions };
-
-// // Create the DynamoDB document client.
-// const ddbDocClient = DynamoDBDocumentClient.from(ddbClient, translateConfig);
-
-// export { ddbDocClient };
-
-
-////////////////////////////////////////////////////
-//////////////////////////////////////////////
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-
-
-
-
-  
-
-
-
-// import { PutCommand } from "@aws-sdk/lib-dynamodb";
-// import { ddbDocClient } from "../libs/ddbDocClient.js";
-
-// export const putItem = async () => {
-//   // Set the parameters.
-//   export const params = {
-//     TableName: "sampleTableAz",
-//     Item: {
-//       primaryKey: "email",
-//       //sortKey: "VALUE_2",
-//     },
-//   };
-//   try {
-//     const data = await ddbDocClient.send(new PutCommand(params));
-//     console.log("Success - item added or updated", data);
-//   } catch (err) {
-//     console.log("Error", err.stack);
-//   }
-// };
-// putItem();
-  
-/////////////////////////////////////////////////////////
-  
-
-//////////////////////////////////////////////////
-////////////////////////////////////////////////
-////////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////
-  
-  
-
-
-
-
-
-
+const initialFormState = {
+  //   name: '',
+  //   message: '',
+  ID: '',
+  firstName: '',
+  lastName: '',
+  Role: '',
+  highestLevelOfEducation: '',
+  dateOfBirth: '',
+  email: '',
+  mobile: '',
+  gender: '',
+  experience: '',
+}
 
 export default class Form extends Component {
   constructor(props) {
@@ -137,12 +69,29 @@ export default class Form extends Component {
       gender,
       experience,
     } = this.state
-    await axios.post(
-      'https://nr4z67jjvi.execute-api.us-east-2.amazonaws.com/default/SampleUploadingDataIntoDynamoFunction',
-      {
-        key1: `${ID}, ${firstName}, ${lastName}, ${Role}, ${highestLevelOfEducation}, ${dateOfBirth}, ${email},${mobile}, ${gender}, ${experience}`,
+    await API.graphql({
+      query: createUserMutation,
+      variables: {
+        input: ID,
+        firstName,
+        lastName,
+        Role,
+        highestLevelOfEducation,
+        dateOfBirth,
+        email,
+        mobile,
+        gender,
+        experience,
       },
-    )
+    })
+    //setNotes([ ...notes, formData ]);
+    //setFormData(initialFormState);
+    // await axios.post(
+    //   'https://nr4z67jjvi.execute-api.us-east-2.amazonaws.com/default/SampleUploadingDataIntoDynamoFunction',
+    //   {
+    //     key1: `${ID}, ${firstName}, ${lastName}, ${Role}, ${highestLevelOfEducation}, ${dateOfBirth}, ${email},${mobile}, ${gender}, ${experience}`,
+    //   },
+    // )
   }
 
   render() {
@@ -152,9 +101,9 @@ export default class Form extends Component {
           <label>ID:</label>
           <input
             type="text"
-            name="name"
+            name="ID"
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.ID}
           />
           <br />
 
